@@ -1,5 +1,7 @@
 package com.example.recyclerview12102022;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -102,5 +104,11 @@ public class Store {
                 ", saleOff='" + saleOff + '\'' +
                 ", distance=" + distance +
                 '}';
+    }
+
+    public static List<Store> getMock() {
+        return new ArrayList<>(Arrays.asList(
+           new Store(R.drawable.bep_ba_muoi, 21600000, 79200000, "Bếp Bà Muối - Ăn Vặt Online", "606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM",new ArrayList<>(Arrays.asList(ServiceType.SHOP_ONLINE)), "", 0)
+        ));
     }
 }
