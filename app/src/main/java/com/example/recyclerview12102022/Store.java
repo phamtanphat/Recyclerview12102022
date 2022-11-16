@@ -108,7 +108,17 @@ public class Store {
 
     public static List<Store> getMock() {
         return new ArrayList<>(Arrays.asList(
-           new Store(R.drawable.bep_ba_muoi, 21600000, 79200000, "Bếp Bà Muối - Ăn Vặt Online", "606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM",new ArrayList<>(Arrays.asList(ServiceType.SHOP_ONLINE)), "", 0)
-        ));
+                new Store(R.drawable.bep_ba_muoi, 21600000, 79200000, "Bếp Bà Muối - Ăn Vặt Online", "606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM", new ArrayList<>(Arrays.asList(ServiceType.SHOP_ONLINE)), "", 0),
+                new Store(R.drawable.bep_ba_muoi, 21600000, 79200000, "Bếp Bà Muối - Ăn Vặt Online", "606/52 Đường 3 Tháng 2, P. 14, Quận 10, TP. HCM", new ArrayList<>(Arrays.asList(ServiceType.SHOP_ONLINE)), "", 0),
+                new Store(R.drawable.ta_la, 0, 86400000, "Tá Lả - Ăn Vặt, Mì Xào, Cơm Chiên & Sinh Tố - Phan Văn Trị", "667/1 Phan Văn Trị, P. 7, Gò Vấp, TP. HCM", new ArrayList<>(Arrays.asList(ServiceType.STREET_FOOD)), "", 0),
+                new Store(R.drawable.royaltea, 29820000, 80520000, "Royaltea Vietnam By Hongkong - Sơn Kỳ", "35 Sơn Kỳ, P. Sơn Kỳ, Tân Phú, TP. HCM", new ArrayList<>(Arrays.asList(ServiceType.STREET_FOOD)), "", 0),
+                new Store(R.drawable.anh_thu_banh_mi, 21600000, 79200000, "Anh Thư - Bánh Mì & Bún Thịt Nướng", "115B Tôn Đản, P. 14, Quận 4, TP. HCM", new ArrayList<>(Arrays.asList(ServiceType.STREET_FOOD)), "", 0),
+                new Store(R.drawable.banh_trang_ut_hanh, 43200000, 82800000, "Bánh Tráng Út Hạnh", "Kios 11 Đường số 32, P. 10, Quận 6, TP. HCM", new ArrayList<>(Arrays.asList(ServiceType.SHOP_ONLINE)), "", 0),
+                new Store(R.drawable.com_tam, 0, 86400000, "Cơm Tấm Huyền - Đinh Tiên Hoàng", "Hẻm 95 Đinh Tiên Hoàng, P. 3, Bình Thạnh, TP. HCM", new ArrayList<>(Arrays.asList(ServiceType.RESTAURANT)), "", 0),
+                new Store(R.drawable.vit_quay, 21600000, 79200000, "Vĩnh Phong - Cửa Hàng Vịt Quay", "523 - 525 - 527 Phan Văn Trị, P. 7, Quận 5, TP. HCM", new ArrayList<>(Arrays.asList(ServiceType.RESTAURANT)), "", 0),
+                new Store(R.drawable.bm_huynh_hoa, 29820000, 80520000, "RBánh Mì Huynh Hoa - Bánh Mì Pate", "26 Lê Thị Riêng, P. Bến Thành, Quận 1, TP. HCM", new ArrayList<>(Arrays.asList(ServiceType.STREET_FOOD)), "", 0),
+                new Store(R.drawable.katinat, 21600000, 79200000, "Katinat - Cộng Hoà", "20 Cộng Hoà, P. 4, Tân Bình, TP. HCM", new ArrayList<>(Arrays.asList(ServiceType.BIRTH_DAY)), "", 0),
+                new Store(R.drawable.banh_trang_cham, 21600000, 79200000, "Bánh Tráng Chấm Cô Gánh - Chung Cư A4 Phan Xích Long", "Lô D001 Chung Cư A4 Phan xích Long, P. 7, Phú Nhuận, TP. HCM", new ArrayList<>(Arrays.asList(ServiceType.SHOP_ONLINE)), "", 0))
+        );
     }
 }
