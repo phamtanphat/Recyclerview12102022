@@ -46,7 +46,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHol
     class StoreViewHolder extends RecyclerView.ViewHolder {
 
         ImageView img;
-        TextView tvClose, tvName, tvAddress, tvCategory, tvSaleOff, tvDistance;
+        TextView tvClose, tvName, tvAddress, tvService, tvSaleOff, tvDistance;
         public StoreViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -54,7 +54,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHol
             tvClose = itemView.findViewById(R.id.text_view_title_close_time);
             tvName = itemView.findViewById(R.id.text_view_name);
             tvAddress = itemView.findViewById(R.id.text_view_address);
-            tvCategory = itemView.findViewById(R.id.text_view_category);
+            tvService = itemView.findViewById(R.id.text_view_service);
             tvSaleOff = itemView.findViewById(R.id.text_view_sale_off);
             tvDistance = itemView.findViewById(R.id.text_view_distance);
         }
@@ -64,6 +64,41 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHol
             tvName.setText(store.getName());
             tvAddress.setText(store.getAddress());
 
+            // Service
+            if (store.getListServiceType().isEmpty()) {
+                tvService.setVisibility(View.GONE);
+            } else {
+                String service = "";
+                if (store.getListServiceType().size() == 1) {
+                    service += store.getListServiceType().get(0).toString();
+                } else {
+                    for (int i = 0; i < store.getListServiceType().size(); i++) {
+                        if (i == store.getListServiceType().size() - 1) {
+                            service += store.getListServiceType().get(i).toString();
+                        } else {
+                            service += store.getListServiceType().get(i).toString() + "/ ";
+                        }
+                    }
+                }
+                tvService.setText(service);
+                tvService.setVisibility(View.VISIBLE);
+            }
+
+            // Sale off
+            if (store.getSaleOff().isEmpty()) {
+                tvSaleOff.setVisibility(View.GONE);
+            } else {
+                tvSaleOff.setText(store.getSaleOff());
+                tvSaleOff.setVisibility(View.VISIBLE);
+            }
+
+            // Distance
+            if (store.getDistance() == 0) {
+                tvDistance.setVisibility(View.GONE);
+            } else {
+                tvDistance.setText("> " + store.getDistance());
+                tvDistance.setVisibility(View.VISIBLE);
+            }
         }
     }
 }
