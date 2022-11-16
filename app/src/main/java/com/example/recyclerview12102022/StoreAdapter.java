@@ -1,5 +1,6 @@
 package com.example.recyclerview12102022;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import java.util.List;
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHolder>{
 
     private List<Store> storeList;
+    private OnItemClickListener onItemClickListener;
 
     public StoreAdapter(List<Store> storeList) {
         this.storeList = storeList;
@@ -57,6 +59,15 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHol
             tvService = itemView.findViewById(R.id.text_view_service);
             tvSaleOff = itemView.findViewById(R.id.text_view_sale_off);
             tvDistance = itemView.findViewById(R.id.text_view_distance);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                   if (onItemClickListener != null) {
+                       onItemClickListener.onClick(getAdapterPosition());
+                   }
+                }
+            });
         }
 
         public void bind(Store store) {
@@ -99,6 +110,16 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHol
                 tvDistance.setText("> " + store.getDistance());
                 tvDistance.setVisibility(View.VISIBLE);
             }
+
+            // Time Close
         }
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
+
+    interface OnItemClickListener {
+        void onClick(int position);
     }
 }
