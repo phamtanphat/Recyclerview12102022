@@ -119,7 +119,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHol
             int minutesCurrent = calendar.get(Calendar.MINUTE);
             int millisecondsCurrent = ((hourCurrent * 60) + minutesCurrent) * 60000;
 
-            if (store.getOpenTime() > millisecondsCurrent || store.getCloseTime() <= millisecondsCurrent ) {
+            if (store.getOpenTime() > millisecondsCurrent || store.getCloseTime() <= millisecondsCurrent) {
                 long minutes = millisecondToMinus(store.getOpenTime());
                 long hour = millisecondToHour(store.getOpenTime());
 
