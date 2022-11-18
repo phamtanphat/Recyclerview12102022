@@ -10,7 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by pphat on 11/16/2022.
@@ -112,7 +114,33 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHol
             }
 
             // Time Close
+            Calendar calendar = Calendar.getInstance();
+            int hourCurrent = calendar.get(Calendar.HOUR_OF_DAY);
+            int minutesCurrent = calendar.get(Calendar.MINUTE);
+            int millisecondsCurrent = ((hourCurrent * 60) + minutesCurrent) * 60000;
+
+            if (store.getOpenTime() > millisecondsCurrent || store.getCloseTime() <= millisecondsCurrent ) {
+                long minutes = millisecondToMinus(store.getOpenTime());
+                long hour = millisecondToHour(store.getOpenTime());
+
+                tvClose.setText(String.format("Đóng cửa \n Đặt bàn vào lúc \n%s:%s", prefixForTime(hour), prefixForTime(minutes)));
+                tvClose.setVisibility(View.VISIBLE);
+            } else {
+                tvClose.setVisibility(View.GONE);
+            }
         }
+    }
+
+    private String prefixForTime(long time) {
+        return time < 10 ? "0" + time : String.valueOf(time);
+    }
+
+    private long millisecondToMinus(long milliseconds) {
+        return milliseconds % 3600000 / 60000;
+    }
+
+    private long millisecondToHour(long milliseconds) {
+        return milliseconds / 3600000;
     }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
